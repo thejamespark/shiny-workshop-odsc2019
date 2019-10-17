@@ -28,9 +28,9 @@
 
 **Optional Step 1:** 패키지 설치: `shiny`, `ggplot2`, `dplyr`, `DT`, `colourpicker`, `readr`. R에서 아래 명령어를 실행하세요.
 
-
+```r
     install.packages(c("shiny", "ggplot2", "dplyr", "DT", "colourpicker", "readr")) 
-
+```
 
 **Optional Step 2:** https://github.com/daattali/shiny-workshop-odsc2019 에 들어간 후
 
