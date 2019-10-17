@@ -1,6 +1,6 @@
 # Shiny 국비교육 - 서울IT직업전문학교
 
-강의와 실습은 [daattali/shiny-workshop-odsc2019](https://github.com/daattali/shiny-workshop-odsc2019) 를 이용합니다. [Kaggle의 NBA 2018/19 시즌 스탯 데이터](https://www.kaggle.com/schmadam97/nba-regular-season-stats-20182019) 를 이용, Shiny app을 만들어 가는 것을 목표로 합니다. 최종 app은 [here](https://daattali.com/shiny/nba2018/) ([mirror](https://daattali.shinyapps.io/nba2018/)) 에서 미리 볼 수 있습니다
+강의와 실습은 [daattali/shiny-workshop-odsc2019](https://github.com/daattali/shiny-workshop-odsc2019) 를 이용합니다. [Kaggle의 NBA 2018/19 시즌 스탯 데이터](https://www.kaggle.com/schmadam97/nba-regular-season-stats-20182019) 를 이용, Shiny app을 만드는 것이 목표입니다. 최종 app은 [here](https://daattali.com/shiny/nba2018/) ([mirror](https://daattali.shinyapps.io/nba2018/)) 에서 미리 볼 수 있습니다
 
 강의 슬라이드 [here](https://github.com/daattali/shiny-workshop-odsc2019/raw/master/Shiny%20Workshop%20-%20ODSC%202019.pdf)
 
