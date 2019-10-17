@@ -40,7 +40,16 @@ layout: true
 # 실습 목표
 
 .large[
+ * [RStudio cloud](https://rstudio.cloud/) 를 이용, 클라우드 환경에서 R을 쓸 수 있다.
+]
+
+--
+
+.large[
  * `app.R` 파일에 Shiny의 **ui**와 **server** 코드를 입력할 수 있다.
+ 
+ 
+ * **Reactivity** 를 이해한다.
 ]
 
 
@@ -49,6 +58,68 @@ layout: true
 .large[
  * `fluidPage`의 `sidebarLayout` 레이아웃을 이용, 왼쪽에는 UI 옵션, 오른쪽에는 해당되는 결과를 보여줄 수 있다.
 ]
+
+--
+.large[
+ * [DT](https://rstudio.github.io/DT/) 패키지로 데이터를, [ggplot2](https://ggplot2.tidyverse.org/) 로 히스토그램을 보여줄 수 있다. 
+
+]
+
+--
+.large[
+ * [shinyapps.io](https://www.shinyapps.io/) 에 app 을 배포할 수 있다. 
+]
+
+
+
+---
+
+# Shiny 예
+
+.large[
+* [공식 갤러리](https://shiny.rstudio.com/gallery/)
+
+
+* [유저 앱 모음](http://www.showmeshiny.com/)
+
+
+* [통계분석 웹 by Zarathu](http://app.zarathu.com/) 
+
+
+* [네트워크분석 by Zarathu]()
+
+
+* [심장 압력 계산 by Zarathu]()
+
+
+* [압축 파일에 담긴 결과 보기 by Zarathu](http://147.47.68.165:1111/cdm/estimation)
+]
+
+
+
+---
+
+# 실습 목표
+
+.large[
+ * [RStudio cloud](https://rstudio.cloud/) 를 이용, 클라우드 환경에서 R을 쓸 수 있다.
+ 
+ 
+ * `app.R` 파일에 Shiny의 **ui**와 **server** 코드를 입력할 수 있다.
+ 
+ 
+ * **Reactivity** 를 이해한다.
+ 
+ 
+ * `fluidPage`의 `sidebarLayout` 레이아웃을 이용, 왼쪽에는 UI 옵션, 오른쪽에는 해당되는 결과를 보여줄 수 있다.
+ 
+ 
+ * [DT](https://rstudio.github.io/DT/) 패키지로 데이터를, [ggplot2](https://ggplot2.tidyverse.org/) 로 히스토그램을 보여줄 수 있다.
+ 
+ 
+ * [shinyapps.io](https://www.shinyapps.io/) 에 app 을 배포할 수 있다. 
+]
+
 
 ---
 
