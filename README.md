@@ -24,7 +24,7 @@
 
 ---
 
-The above steps assume that you'll have an internet connection during the workshop. Just in case you won't have internet, I suggest also doing the following 3 steps, to also have a copy of the material on your computer.
+개인 PC에서 실습을 원한다면 아래 Step을 따르세요.
 
 **Optional Step 1:** Install the following R packages: `shiny`, `ggplot2`, `dplyr`, `DT`, `colourpicker`, `readr`. You can use this command in R to install all these packages at once:
 
