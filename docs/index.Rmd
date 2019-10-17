@@ -1,0 +1,59 @@
+---
+title: "Shiny 실습"
+author: "김진섭; [`r anicon::faa('github', animate='float', rtext='jinseob2kim')`](https://github.com/jinseob2kim)"
+institute: "차라투(주)"
+date: "2019-11-14"
+output:
+  xaringan::moon_reader:
+    css: ["css/footer-header.css", "default"]
+    lib_dir: libs
+    nature:
+      beforeInit: "js/macros.js"
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "4:3" 
+subtitle: "서울IT직업전문학교 빅데이터 사이언스 실무프로젝트"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = FALSE, fig.align = "center")
+library(knitr);library(DT);library(dplyr);library(data.table);library(rmarkdown);library(readr);library(purrr);library(tidyr)
+```
+
+
+layout: true
+
+<div class="my-footer"><span><a href="https://www.zarathu.com">Zarathu Co.,Ltd</a>   
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<a href="https://github.com/jinseob2kim">김진섭</a></span></div> 
+
+---
+
+# 실습 목표
+
+.large[
+ * `app.R` 파일에 Shiny의 **ui**와 **server** 코드를 입력할 수 있다.
+]
+
+
+--
+
+.large[
+ * `fluidPage`의 `sidebarLayout` 레이아웃을 이용, 왼쪽에는 UI 옵션, 오른쪽에는 해당되는 결과를 보여줄 수 있다.
+]
+
+---
+
+class: center, middle
+
+# END
+
+
