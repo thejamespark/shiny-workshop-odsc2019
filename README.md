@@ -26,12 +26,12 @@
 
 개인 PC에서 실습을 원한다면 아래 Step을 따르세요.
 
-**Optional Step 1:** Install the following R packages: `shiny`, `ggplot2`, `dplyr`, `DT`, `colourpicker`, `readr`. You can use this command in R to install all these packages at once:
+**Optional Step 1:** 패키지 설치: `shiny`, `ggplot2`, `dplyr`, `DT`, `colourpicker`, `readr`. R에서 아래 명령어를 실행하세요.
 
 
     install.packages(c("shiny", "ggplot2", "dplyr", "DT", "colourpicker", "readr")) 
 
 
-**Optional Step 2:** Go to https://github.com/daattali/shiny-workshop-odsc2019
+**Optional Step 2:** https://github.com/daattali/shiny-workshop-odsc2019 에 들어간 후
 
-**Optional Step 3:** Click on the green button *"Clone or download"* and then click on *"Download ZIP"*. Now you have all the necessary workshop materials on your computer.
+**Optional Step 3:** 녹색 *"Clone or download"* 클릭 후 *"Download ZIP"* 을 눌러 자료를 다운받으세요. 
