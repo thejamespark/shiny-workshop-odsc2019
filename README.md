@@ -1,20 +1,26 @@
 # Shiny 국비교육 - 서울IT직업전문학교
 
-강의와 실습은 [daattali/shiny-workshop-odsc2019](https://github.com/daattali/shiny-workshop-odsc2019) 를 이용합니다. [Kaggle의 NBA 2018/19 시즌 스탯 데이터](https://www.kaggle.com/schmadam97/nba-regular-season-stats-20182019) 를 이용, Shiny app을 만드는 것이 목표입니다. 최종 app은 [here](https://daattali.com/shiny/nba2018/) ([mirror](https://daattali.shinyapps.io/nba2018/)) 에서 미리 볼 수 있습니다
+* 강의와 실습은 [daattali/shiny-workshop-odsc2019](https://github.com/daattali/shiny-workshop-odsc2019) 를 이용합니다. 
 
-강의 슬라이드 [here](https://github.com/daattali/shiny-workshop-odsc2019/raw/master/Shiny%20Workshop%20-%20ODSC%202019.pdf)
+* [Kaggle의 NBA 2018/19 시즌 스탯 데이터](https://www.kaggle.com/schmadam97/nba-regular-season-stats-20182019) 를 이용, Shiny app을 만드는 것이 목표입니다. 
 
-## Before we begin
+* 최종 app은 [here](https://daattali.com/shiny/nba2018/) ([mirror](https://daattali.shinyapps.io/nba2018/)) 에서 미리 볼 수 있습니다
 
-**Step 1:** Go to https://rstudio.cloud and sign up
+* 강의 슬라이드 [here](https://github.com/daattali/shiny-workshop-odsc2019/raw/master/Shiny%20Workshop%20-%20ODSC%202019.pdf)
 
-**Step 2:** Go to https://rstudio.cloud/spaces/30306/join?access_code=s4hEiPXQF%2BjosPclQEzgTtR0mPWDuh7Dhr2O7wAg and click *"Join Space"*
 
-**Step 3:** Click on *"Projects"* at the top, then click on the dropdown menu beside *"New Project"* and select *"New Project from Git Repo"*. Use this URL: https://github.com/daattali/shiny-workshop-odsc2019
+## 시작하기 전에
+
+**Step 1:** https://rstudio.cloud 회원 가입
+
+**Step 2:** https://rstudio.cloud/spaces/30306/join?access_code=s4hEiPXQF%2BjosPclQEzgTtR0mPWDuh7Dhr2O7wAg 들어가서 *"Join Space"* 
+
+**Step 3:** 위쪽 *"Projects"* 클릭 후, *"New Project"* 를 눌러 *"New Project from Git Repo"* 를 선택하세요. URL 주소는  https://github.com/daattali/shiny-workshop-odsc2019 입니다.
+
 
 ![step 3](https://i.imgur.com/nU5bbFL.png)
 
-That's all you need to do! Don't worry about looking at any of the material, we'll cover it all in the workshop. All you need to do is steps 1-2-3. 
+모든 강의자료는 RStudio cloud 에 들어 있습니다. 
 
 ---
 
