@@ -6,7 +6,7 @@
 
 * 최종 app은 [here](https://daattali.com/shiny/nba2018/) ([mirror](https://daattali.shinyapps.io/nba2018/)) 에서 미리 볼 수 있습니다
 
-* 강의 슬라이드 [here](https://github.com/daattali/shiny-workshop-odsc2019/raw/master/Shiny%20Workshop%20-%20ODSC%202019.pdf)
+* [강의 슬라이드](https://jinseob2kim.github.io/shiny-workshop-odsc2019/), [original slide](https://github.com/daattali/shiny-workshop-odsc2019/raw/master/Shiny%20Workshop%20-%20ODSC%202019.pdf)
 
 
 ## 시작하기 전에
