@@ -97,6 +97,93 @@ layout: true
 
 ---
 
+class: center, middle
+
+# 시작하기 전에
+
+
+---
+
+# [RStudio cloud](https://rstudio.cloud/)
+
+.large[
+ * **클라우드 환경**에서 RStudio 무료 이용.
+ 
+ 
+ * 성능은 나쁘지만(1 코어, 램 1기가), 실습용으론 충분.
+]
+
+
+&lt;a href="https://rstudio.cloud/"&gt;&lt;img src="rstudio-cloud.png" width=100%&gt;&lt;/a&gt;
+
+
+---
+
+# 실습환경 만들기: RStudio cloud 
+
+**Step 1:** https://rstudio.cloud 회원 가입
+
+**Step 2:** https://rstudio.cloud/spaces/30306/join?access_code=s4hEiPXQF%2BjosPclQEzgTtR0mPWDuh7Dhr2O7wAg 들어가서 **"Join Space"** 클릭
+
+**Step 3:** 위쪽 **"Projects"** 클릭 후, **"New Project"** 를 눌러 **"New Project from Git Repo"** 선택. Repo 주소는 https://github.com/jinseob2kim/shiny-workshop-odsc2019.
+
+
+![step 3](https://i.imgur.com/nU5bbFL.png)
+
+모든 강의자료는 RStudio cloud 에 들어 있습니다. 
+
+
+---
+
+# 실습환경 만들기: 개인 PC
+
+**Step 1:** 패키지 설치
+
+```r
+install.packages(c("shiny", "ggplot2", "dplyr", "DT", "colourpicker", "readr")) 
+```
+
+
+&lt;br&gt;
+**Step 2:** https://github.com/jinseob2kim/shiny-workshop-odsc2019 들어간 후 
+
+&lt;br&gt;
+
+**Step 3:** 녹색 **"Clone or download"** 클릭 후 **"Download ZIP"** 을 눌러 자료 다운. 
+
+
+---
+
+# 실습파일 
+
+.large[
+* `app_01.R` - `app_09.R`: 9단계 문제 
+
+
+* `app_01_sol.R` - `app_09_sol.R`: 해답
+
+
+* `app_full_version.R`: [최종 완성 앱](https://daattali.shinyapps.io/nba2018/)
+
+
+* **data** 폴더: [Kaggle의 NBA 2018/19 시즌 스탯 데이터](https://www.kaggle.com/schmadam97/nba-regular-season-stats-20182019)
+
+
+* **docs** 폴더: 이 슬라이드 파일 
+
+]
+
+
+---
+
+class: center, middle
+
+# Shiny 소개
+
+
+
+---
+
 # 실습 목표
 
 .large[
@@ -117,6 +204,7 @@ layout: true
  
  * [shinyapps.io](https://www.shinyapps.io/) 에 app 을 배포할 수 있다. 
 ]
+
 
 
 ---
