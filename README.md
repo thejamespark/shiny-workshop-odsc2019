@@ -32,6 +32,6 @@
     install.packages(c("shiny", "ggplot2", "dplyr", "DT", "colourpicker", "readr")) 
 ```
 
-**Optional Step 2:** https://github.com/daattali/shiny-workshop-odsc2019 에 들어간 후
+**Optional Step 2:** https://github.com/jinseob2kim/shiny-workshop-odsc2019 에 들어간 후
 
 **Optional Step 3:** 녹색 *"Clone or download"* 클릭 후 *"Download ZIP"* 을 눌러 자료를 다운받으세요. 
