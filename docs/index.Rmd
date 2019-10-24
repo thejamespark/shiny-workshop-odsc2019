@@ -183,6 +183,99 @@ class: center, middle
 # Shiny 소개
 
 
+---
+
+### [Shiny](https://shiny.rstudio.com/) is an R package that makes it easy to **build web applications with R**
+
+
+
+```{r, align = "center"}
+include_graphics("rs.png")
+```
+
+---
+
+# 웹 개발 지식 없어도 됨
+
+```{r, align = "center"}
+include_graphics("css.png")
+```
+
+
+---
+
+# Shiny app
+
+```{r, align = "center"}
+include_graphics("ui.png")
+```
+
+---
+
+# UI & SERVER
+
+```{r, align = "center"}
+include_graphics("ui2.png")
+```
+
+
+
+
+
+---
+
+# UI & SERVER
+
+<center>
+<a href="https://codingclubuc3m.rbind.io/post/2018-06-19/"><img src="https://codingclubuc3m.rbind.io/post/2018-06-19_files/shinyApp.png" width=70%></a>
+</center>
+
+
+---
+
+# Make basic App
+
+* `app.R` 파일 만들고(**이름 바뀌면 안됨**)
+
+* `ui` 와 `server` 코드 작성 후 `shinyApp` 으로 마무리. **Run App** 눌러 실행.
+
+  - `ui.R`, `server.R` 따로 작성할 수도 있음. 개인 취향
+
+
+
+```{r, align = "center"}
+include_graphics("basic.png")
+```
+
+
+
+---
+
+# Stop App
+
+**ESC** or 빨간 **Stop** 버튼
+
+```{r, align = "center"}
+include_graphics("stop.png")
+```
+
+---
+
+# 실습: `app_01.R`
+
+.large[
+* `shiny` 패키지 로드 후, 아래와 같이 데이터를 읽는다.
+
+```r
+players <- read.csv("data/nba2018.csv")
+```
+
+* 데이터 확인: **ui** 에 **데이터 행 수** 를 보여주기.
+
+
+* 데이터 탐색: 선수들 **나이(age), 연봉(salary), 키(height) 의 범위**는?
+
+]
 
 ---
 
