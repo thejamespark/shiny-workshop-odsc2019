@@ -24,7 +24,7 @@ subtitle: "서울IT직업전문학교 빅데이터 사이언스 실무프로젝�
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(echo = FALSE, fig.align = "center")
-library(knitr);library(DT);library(dplyr);library(data.table);library(rmarkdown);library(readr);library(purrr);library(tidyr)
+library(knitr);library(DT);library(shiny)
 ```
 
 
@@ -276,6 +276,376 @@ players <- read.csv("data/nba2018.csv")
 * 데이터 탐색: 선수들 **나이(age), 연봉(salary), 키(height) 의 범위**는?
 
 ]
+
+
+---
+class: center, middle
+
+# UI 꾸미기
+
+
+---
+# Add text
+
+
+```r
+library(shiny)
+
+ui <- fluidPage(
+  "Hello ODSC"
+)
+
+server <- function(input, output, session){
+
+}
+
+shinyApp(ui, server)
+```
+
+```{r, align = "center"}
+include_graphics("addtext.png")
+```
+
+---
+# Use `html` tags
+
+```r
+ui <- fluidPage(
+  h1("My Shiny app"),
+  strong("Dean Attali"),
+  br(),
+  "Hello ODSC"
+)
+```
+
+```{r, align = "center"}
+include_graphics("addtext2.png")
+```
+
+---
+
+# [`html` 다른 옵션들](https://shiny.rstudio.com/articles/tag-glossary.html)
+
+
+```{r, echo = T}
+names(tags)
+```
+
+
+---
+
+# `titlePanel()`
+
+```r
+ui <- fluidPage(
+* titlePanel("My Shiny app"),
+  strong("Dean Attali"),
+  br(),
+  "Hello ODSC"
+)
+```
+
+```{r, align = "center"}
+include_graphics("addtext3.png")
+```
+
+
+---
+
+# Layout: `sidebarLayout()` 
+
+* 화면 **왼쪽에서 control**, **오른쪽에 결과**: [다양한 Layout](http://shiny.rstudio.com/articles/layout-guide.html) 
+
+```r
+fluidPage(
+  titlePanel("My Shiny app"),
+* sidebarLayout(
+*   sidebarPanel(
+      "This is a side panel"),
+*   mainPanel(
+      "And this is the main stuff")
+    )
+)
+```
+
+```{r, align = "center"}
+include_graphics("sidebar.png")
+```
+
+---
+
+# Shiny 는 ui 를 `html` 로 바꾼다.
+
+```{r, echo = T}
+ui <- fluidPage(
+  titlePanel("My Shiny app"),
+  sidebarLayout(
+   sidebarPanel(
+      "This is a side panel"),
+   mainPanel(
+      "And this is the main stuff")
+    )
+)
+
+print(ui)
+```
+
+
+---
+
+# 실습: `app_02.R`
+
+.large[
+1. `titlePanel` 추가: "NBA 2018/19 Player Stats"
+
+2. `sidebarLayout` 적용
+
+  - `sidebarPanel`: "Exploring all player stats from the NBA 2018/19 season" 쓰기
+  
+  - `mainPanel`: **굵은 글씨**로 "There are X players in the dataset" (X는 실제 숫자)
+  
+]
+
+
+---
+class: center, middle
+
+# Inputs and outputs
+
+
+---
+
+# Inputs and outputs
+
+* 반응형 웹은 유저가 조절할 수 있는 **input** 과 그에 대응하는 **output** 이 있다.
+
+```{r, align = "center"}
+include_graphics("inputoutput.png")
+```
+
+
+---
+
+# [Input 종류](https://shiny.rstudio.com/tutorial/written-tutorial/lesson3/images/basic-widgets.png)
+
+```{r, align = "center"}
+include_graphics("input.png")
+```
+
+
+---
+
+# 예: `sliderInput`
+
+```r
+library(shiny)
+ui <- fluidPage(
+* sliderInput(
+*   inputId = "num", label = "Choose a number", min = 0, max = 100, 
+    value = 20)
+* )
+
+server <- function(input, output) {}
+shinyApp(ui = ui, server = server)
+```
+
+```{r, align = "center", out.width="70%"}
+include_graphics("slider.png")
+```
+
+---
+
+# Shiny: input $\rightarrow$ `html`
+
+```{r, echo = T}
+print(
+  sliderInput("num", "Choose a number", min = 0, max = 100, 
+              value = 20)
+)
+
+```
+
+
+---
+
+# 범위도 가능 
+
+```r
+sliderInput("range", "Age:", min = 0, max = 100, value = c(24, 75))
+```
+
+```{r, align = "center", out.width="70%"}
+include_graphics("https://i.stack.imgur.com/KsRCZ.jpg")
+```
+
+.large[
+자세한 옵션은 [링크](https://shiny.rstudio.com/articles/sliders.html) 참고
+]
+
+
+---
+
+# 실습: `app_03.R`
+
+.large[
+
+ * `sidebarPanel` 에 Level 3 header(`h3`) 로 "Filter" 글자 추가. 
+ 
+ 
+ * 바로 아래에 `sliderInput` 추가
+  
+    - **id**: "VORP", 
+    - **min** -3, **max** 10, **value** 0 
+    - **Label**: "Player VORP rating at least"
+    
+ 
+ * 바로 아래에 `selectInput` 추가
+ 
+    - **id, label**: "Team", 
+    - **choices**: 데이터셋의 모든 팀
+    - Default **selected**: "Golden State Warriors"
+    - **Label**: "Player VORP rating at least"
+
+
+]
+
+---
+
+# Outputs
+
+**Step 1**: **UI** 에 output 종류에 따른 코드를 넣는다: `*Output`
+
+<br>
+**Step 2**: **Server** 에 output 내용 만드는 코드를 넣는다: `render*`
+
+```{r}
+out <- data.table::data.table(`UI Function` = paste0(c("plot", "text", "verbatimText", "table", "ui", "DT"), "Output()"),
+                              `Render Function` = paste0("render", c("Plot", "Text", "Print", "Table", "UI", "DT"), "({})"),
+                              Output = c("Plot", "Text", "R result", "Table", "Shiny UI element", "table of DT package"))
+
+kable(out, format='html', align = "c")
+```
+
+
+
+
+---
+
+# 예: plot
+
+```r
+library(shiny)
+ui <- fluidPage(
+  sliderInput("num", "Choose a number", 0, 100, 20),  ## id: num
+* plotOutput("myplot")                                ## id: myplot
+  )
+
+server <- function(input, output){
+* output$myplot <- renderPlot({                       ## id: myplot
+*   plot(rnorm(input$num))                            ## id: num
+    })
+}
+
+shinyApp(ui = ui, server = server)
+
+```
+
+
+---
+
+# 실습: `app_04.R`
+
+
+.large[
+ * `mainPanel` 에 `plotOutput` 추가
+ 
+  - **id**: "nba_plot"
+  
+ 
+ * 바로 아래에 `tableOutput` 추가
+ 
+  - **id**: "players_data"
+  
+ 
+주의! 화면 결과가 바뀌는 건 없다.
+
+]
+
+
+---
+
+# Using input$
+
+```{r, align = "center"}
+include_graphics("inputn.png")
+```
+
+
+---
+
+# 실습: `app_05.R`
+
+
+.large[
+ *  `renderText`: **데이터에서 filtering 된 사람 수**  
+ 
+  - **id**: "num_players"
+
+  
+ * `renderPlot`: 필터링 데이터에서 **Salay** 값의 히스토그램
+ 
+  - **id**: "nba_plot"
+
+```r  
+ggplot(data, aes(Salary)) + geom_histogram()
+```
+
+ 
+ * `renderTable` $\rightarrow$ `renderDT`: [반응형 테이블 DT](https://rstudio.github.io/DT/shiny.html) 
+ 
+  - **id**: "players_data"
+
+]
+
+
+---
+class: center, middle
+
+# Reactivity
+
+
+---
+class: center, middle
+
+# Share your app
+
+
+---
+
+# [shinyapps.io](https://www.shinyapps.io/)
+
+.large[
+**Step 1**: ID 만들기
+ <br>
+ 
+**Step 2**: 앱 코드 `app.R` 에 저장. 
+ <br>
+ 
+**Step 3**: **"Publish Application"** 클릭
+
+```{r, align = "center"}
+include_graphics("shinyio.png")
+```
+ 
+
+**Step 4**: 설명을 따라 계정 token 입력 후, `app.R` 을 업로드.
+<br>
+
+앱 주소는 **"https://아이디.shinyapps.io/앱이름/"**
+
+]
+
+
 
 ---
 
