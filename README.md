@@ -15,7 +15,7 @@
 
 **Step 2:** https://rstudio.cloud/spaces/30306/join?access_code=s4hEiPXQF%2BjosPclQEzgTtR0mPWDuh7Dhr2O7wAg 들어가서 *"Join Space"* 클릭
 
-**Step 3:** 위쪽 *"Projects"* 클릭 후, *"New Project"* 를 눌러 *"New Project from Git Repo"* 를 선택하세요. Repo 주소는  https://github.com/daattali/shiny-workshop-odsc2019 입니다.
+**Step 3:** 위쪽 *"Projects"* 클릭 후, *"New Project"* 를 눌러 *"New Project from Git Repo"* 를 선택하세요. Repo 주소는  https://github.com/jinseob2kim/shiny-workshop-odsc2019 입니다.
 
 
 ![step 3](https://i.imgur.com/nU5bbFL.png)
@@ -32,6 +32,6 @@
     install.packages(c("shiny", "ggplot2", "dplyr", "DT", "colourpicker", "readr")) 
 ```
 
-**Optional Step 2:** https://github.com/daattali/shiny-workshop-odsc2019 에 들어간 후
+**Optional Step 2:** https://github.com/jinseob2kim/shiny-workshop-odsc2019 에 들어간 후
 
 **Optional Step 3:** 녹색 *"Clone or download"* 클릭 후 *"Download ZIP"* 을 눌러 자료를 다운받으세요. 
