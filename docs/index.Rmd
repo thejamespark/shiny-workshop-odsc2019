@@ -49,20 +49,16 @@ layout: true
  * `app.R` 파일에 Shiny의 **ui**와 **server** 코드를 입력할 수 있다.
  
  
- * **Reactivity** 를 이해한다.
-]
-
-
---
-
-.large[
  * `fluidPage`의 `sidebarLayout` 레이아웃을 이용, 왼쪽에는 UI 옵션, 오른쪽에는 해당되는 결과를 보여줄 수 있다.
+ 
+ 
+ * [DT](https://rstudio.github.io/DT/) 패키지로 데이터를, [ggplot2](https://ggplot2.tidyverse.org/) 로 히스토그램을 보여줄 수 있다. 
 ]
+
 
 --
 .large[
- * [DT](https://rstudio.github.io/DT/) 패키지로 데이터를, [ggplot2](https://ggplot2.tidyverse.org/) 로 히스토그램을 보여줄 수 있다. 
-
+ * **Reactivity** 를 이해한다.  
 ]
 
 --
@@ -615,6 +611,159 @@ class: center, middle
 
 
 ---
+
+# Reactive values
+
+.large[
+* 모든 **input** 은 **reactive value**.
+]
+
+```r
+server <- function(input, output) {
+  
+  output$myplot <- renderPlot({
+*   plot(rnorm(input$num))
+    })
+
+}
+```
+
+.large[
+`input$num` 이 변하면 output의 plot 도 변한다.
+]
+
+
+---
+
+# Reactive contexts
+
+.large[
+* 모든 **reactive value** 는 **reactive context** 안에서만 적용 가능.
+
+
+* `render*` 꼴은 전부 **reactive context**
+]
+
+```r
+server <- function(input, output) {
+  
+* output$myplot <- renderPlot({
+    plot(rnorm(input$num))
+    })
+
+}
+```
+
+
+---
+
+# Problem 1
+
+```r
+server <- function(input, output) {
+
+* print(input$num)
+
+}
+  
+# ERROR: Operation not allowed without an active reactive context
+```
+
+---
+
+# Solution 1: `observe{()}`
+
+```r
+server <- function(input, output) {
+
+* observe({
+*  print(input$num)
+* })
+
+}
+
+```
+
+2개 이상도 가능.
+
+```r
+server <- function(input, output) {
+
+* observe({
+*  print(input$num1)
+*  print(input$num2)
+* })
+
+}
+
+```
+
+---
+
+# Problem 2
+
+```r
+server <- function(input, output) {
+
+  x <- input$num + 1
+
+}
+
+# ERROR: Operation not allowed without an active reactive context.
+```
+
+---
+
+# Solution 2: `reactive()`
+
+```r
+server <- function(input, output) {
+
+* x <- reactive({
+*  input$num + 1
+* })
+
+}
+```
+
+.large[
+**불러올 때는 `()` 붙여야 함: `x`가 아니고 `x()`**
+]
+
+```r
+server <- function(input, output) {
+
+ x <- reactive({
+  input$num + 1
+ })
+ 
+ output$text <- renderText({
+* x()
+ })
+
+}
+```
+
+
+---
+
+# 실습: `app_06.R`
+
+.large[
+* `renderDT`, `renderText`, `renderPlot` 에 공통으로 쓰이는 `data` 를  **Reactive variable** `filtered_data` 로 저장. 
+
+
+* 만든 `filtered_data` 이용, `renderDT`, `renderText`, `renderPlot` 코드 간소화.
+
+
+* **Plot** 꾸미기: **심플한** theme, x 축을 **log scale** 로 
+
+```r
+theme_classic() + scale_x_log10(labels = scales::comma)
+```
+]
+
+---
 class: center, middle
 
 # Share your app
@@ -646,6 +795,76 @@ include_graphics("shinyio.png")
 ]
 
 
+---
+
+# 실습: `app_07.R`
+
+.large[
+* `sliderInput` 수정하기
+  
+  - **VORP** 값이 아닌 범위 선택.   
+
+
+* `selectInput` 수정하기
+
+  - `multiple = TRUE` 옵션으로 **Team** 여러 개 선택.   
+
+]
+
+---
+
+# 실습: `app_08.R`
+
+* `sidebarPanel` 에 **h3** 크기로 **"Plot options"** 글자 추가. 
+  
+
+* **그림 보여줄 변수 선택**하는 `selectInput` 추가하고 그림그리기.
+
+  - **id**: "variable", **label**: "Variable"
+  
+  - **choices**: "VORP", "Salary", "Age", "Height", "Weight"
+  
+
+>ggplot 에서 `aes(input$variable)` 대신 `aes_string(input$variable)` 사용.  
+
+
+* **그림 종류** 고르는 `radioButton` 추가
+
+  - **id**: "plot_type", **label**: "Plot type"
+  
+  - **choices**: "histogram", "density"
+
+>`geom_histogram()` or `geom_density()`
+
+
+
+
+---
+
+# 실습마지막: `app_09.R`
+
+* `sidebarPanel` 에 **x 축 log scale** 여부 선택하는 `checkboxInput` 추가 
+  
+  - **id**: "log", **label**: "Log scale"
+
+> `scale_x_continuous()` or `scale_x_log10()`  
+
+
+* 그림 폰트 크기 조절하는 `numericInput` 추가 
+
+  - **id**: "size", **label**: "Font size"
+  
+> `theme_classic(<size>)`
+  
+
+* **그림 색깔** 지정하는 `colourInput` 추가
+
+  - **id**: "col", **label**: "Line colour"
+  
+> `geom_histogram(fill = input$col)`  
+
+
+
 
 ---
 
@@ -658,13 +877,13 @@ include_graphics("shinyio.png")
  * `app.R` 파일에 Shiny의 **ui**와 **server** 코드를 입력할 수 있다.
  
  
- * **Reactivity** 를 이해한다.
- 
- 
  * `fluidPage`의 `sidebarLayout` 레이아웃을 이용, 왼쪽에는 UI 옵션, 오른쪽에는 해당되는 결과를 보여줄 수 있다.
  
  
  * [DT](https://rstudio.github.io/DT/) 패키지로 데이터를, [ggplot2](https://ggplot2.tidyverse.org/) 로 히스토그램을 보여줄 수 있다.
+ 
+ 
+ * **Reactivity** 를 이해한다.
  
  
  * [shinyapps.io](https://www.shinyapps.io/) 에 app 을 배포할 수 있다. 
