@@ -18,7 +18,7 @@
 **Step 3:** 위쪽 *"Projects"* 클릭 후, *"New Project"* 를 눌러 *"New Project from Git Repo"* 를 선택하세요. Repo 주소는  https://github.com/jinseob2kim/shiny-workshop-odsc2019 입니다.
 
 
-![step 3](https://i.imgur.com/nU5bbFL.png)
+![Step 3](https://i.imgur.com/nU5bbFL.png)
 
 모든 강의자료는 RStudio cloud 에 들어 있습니다. 
 
