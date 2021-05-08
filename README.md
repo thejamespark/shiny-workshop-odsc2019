@@ -1,4 +1,4 @@
-# Shiny 국비교육 - 서울IT직업전문학교
+# Shiny 기초실습
 
 * 강의와 실습은 [daattali/shiny-workshop-odsc2019](https://github.com/daattali/shiny-workshop-odsc2019) 를 이용합니다. 
 
