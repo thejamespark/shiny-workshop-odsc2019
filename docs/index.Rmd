@@ -1,8 +1,8 @@
 ---
-title: "Shiny 실습"
-author: "김진섭; [`r anicon::faa('github', animate='float', rtext='jinseob2kim')`](https://github.com/jinseob2kim)"
+title: "Shiny 기초실습"
+author: 김진섭; [`r anicon::faa('github', animate='float', rtext='jinseob2kim')`](https://github.com/jinseob2kim)
 institute: "차라투(주)"
-date: "2019-11-14"
+date: "2021-06-08"
 output:
   xaringan::moon_reader:
     css: ["css/footer-header.css", "default"]
@@ -18,7 +18,7 @@ output:
       highlightLines: true
       countIncrementalSlides: false
       ratio: "4:3" 
-subtitle: "서울IT직업전문학교 빅데이터 사이언스 실무프로젝트"
+subtitle: "서울대학교 보건대학원 공간역학실습"
 ---
 
 ```{r setup, include=FALSE}
@@ -66,6 +66,11 @@ layout: true
  * [shinyapps.io](https://www.shinyapps.io/) 에 app 을 배포할 수 있다. 
 ]
 
+--
+.large[
+ * 지도패키지 [leaflet](https://rstudio.github.io/leaflet/shiny.html) 실습은 오늘 무리..
+]
+
 
 
 ---
@@ -76,19 +81,16 @@ layout: true
 * [공식 갤러리](https://shiny.rstudio.com/gallery/)
 
 
-* [유저 앱 모음](http://www.showmeshiny.com/)
+* [통계분석 웹 by 차라투](http://app.zarathu.com/) 
 
 
-* [통계분석 웹 by Zarathu](http://app.zarathu.com/) 
+* [메타분석 by 차라투](http://app.zarathu.com/meta-analysis/)
 
 
-* [네트워크분석 by Zarathu]()
+* [경기도 코로나 대시보드 by Shinykorea](https://github.com/shinykorea/Meetup)
 
 
-* [심장 압력 계산 by Zarathu]()
-
-
-* [압축 파일에 담긴 결과 보기 by Zarathu](http://147.47.68.165:1111/cdm/estimation)
+* [병원 입지분석 플랫폼 by 브랜드본담](https://bondam.co.kr/wherehere)
 ]
 
 
