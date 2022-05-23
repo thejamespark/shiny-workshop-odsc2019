@@ -1,0 +1,14 @@
+name: nba2018
+title: nba2018
+username:
+account: hn3fpg-sj-park
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6263284
+bundleId: 5886366
+url: https://hn3fpg-sj-park.shinyapps.io/nba2018/
+when: 1652095614.38628
+lastSyncTime: 1652095614.38629
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: 12th_class.R|app_01_og.R|app_01_sol.R|app_01.R|app_02_og.R|app_02_sol.R|app_02.R|app_03_og.R|app_03_sol.R|app_03.R|app_04_og.R|app_04_sol.R|app_04.R|app_05_og.R|app_05_sol.R|app_05.R|app_06_og.R|app_06_sol.R|app_06.R|app_07_og.R|app_07_sol.R|app_07.R|app_08_og.R|app_08_sol.R|app_08.R|app_09_og.R|app_09_sol.R|app_09.R|data/data_prep.R|data/nba2018_raw.csv|plot.R|README.md|Shiny Workshop - ODSC 2019.pdf|slide.R|docs

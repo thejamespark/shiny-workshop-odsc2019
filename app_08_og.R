@@ -15,12 +15,13 @@ ui <- fluidPage(
         inputId = "VORP",
         label = "Player VORP rating at least",
         min = -3, max = 10,
-        value = 0
+        value = c(0, 10)
       ),
       selectInput(
         "Team", "Team",
         unique(players$Team),
-        selected = "Golden State Warriors"
+        selected = "Golden State Warriors",
+        multiple = TRUE
       )
     ),
     mainPanel(
@@ -30,39 +31,40 @@ ui <- fluidPage(
         "players in the dataset"
       ),
       plotOutput("nba_plot"),
-      tableOutput("players_data"),
-      DTOutput("num_players")
+      DTOutput("players_data")
     )
   )
 )
 
 server <- function(input, output, session) {
 
-  output$players_data <- renderDT({
-    data <- players %>%
-      filter(VORP >= input$VORP,
-             Team %in% input$Team)
+  filtered_data <- reactive({
+    players <- players %>%
+      filter(VORP >= input$VORP[1],
+             VORP <= input$VORP[2])
 
-    data
+    if (length(input$Team) > 0) {
+      players <- players %>%
+        filter(Team %in% input$Team)
+    }
+
+    players
+  })
+
+  output$players_data <- renderDT({
+    filtered_data()
   })
 
   output$num_players <- renderText({
-    data <- players %>%
-      filter(VORP >= input$VORP,
-             Team %in% input$Team)
-
-    nrow(data)
+    nrow(filtered_data())
   })
 
   output$nba_plot <- renderPlot({
-    data <- players %>%
-      filter(VORP >= input$VORP,
-             Team %in% input$Team)
-
-    ggplot(data, aes(Salary)) + geom_histogram()
+    ggplot(filtered_data(), aes(Salary)) +
+      geom_histogram() +
+      theme_classic() +
+      scale_x_log10(labels = scales::comma)
   })
-
-  # Build the plot output here
 
 }
 

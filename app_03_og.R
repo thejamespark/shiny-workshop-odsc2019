@@ -6,9 +6,14 @@ ui <- fluidPage(
   titlePanel("NBA 2018/19 Player Stats"),
   sidebarLayout(
     sidebarPanel(
-      "Exploring all player stats from the NBA 2018/19 season"),
+      "Exploring all player stats from the NBA 2018/19 season"
+    ),
     mainPanel(
-      strong(paste0("There are ", nrow(players), " players in the dataset"))
+      strong(
+        "There are",
+        nrow(players),
+        "players in the dataset"
+      )
     )
   )
 )

@@ -2,6 +2,7 @@ library(shiny)
 library(ggplot2)
 library(dplyr)
 library(DT)
+library(colourpicker)
 
 players <- read.csv("data/nba2018.csv")
 
@@ -24,26 +25,22 @@ ui <- fluidPage(
         multiple = TRUE
       ),
       h3("Plot options"),
-      selectInput(
-        "variable", "Variable",
-        choices =  c("VORP", "Salary", "Age", "Height", "Weight"),
-        selected = "VORP"
+      selectInput("variable", "Variable",
+                  c("VORP", "Salary", "Age", "Height", "Weight"),
+                  "Salary"),
+      radioButtons("plot_type", "Plot type", c("histogram", "density"))
+    ),
+    mainPanel(
+      strong(
+        "There are",
+        textOutput("num_players", inline = TRUE),
+        "players in the dataset"
       ),
-      radioButtons("plot_type", "Plot type",
-                   c("histogram", "density"), selected = "histogram"
-      ),
-      mainPanel(
-        strong(
-          "There are",
-          textOutput("num_players", inline = TRUE),
-          "players in the dataset"
-        ),
-        plotOutput("nba_plot"),
-        DTOutput("players_data")
+      plotOutput("nba_plot"),
+      DTOutput("players_data")
     )
   )
 )
-
 
 server <- function(input, output, session) {
 
@@ -69,22 +66,16 @@ server <- function(input, output, session) {
   })
 
   output$nba_plot <- renderPlot({
-    p <- ggplot(filtered_data(), aes_string(input$variable) +
-                  theme_classic() +
-                  scale_x_log10(labels = scales::comma))
-
-      if (input$plot_type == "histogram"){
-        p + geom_histogram()
-      } else{
-        p + geom_density()
-      }
-  })
-
-  output$nba_plot <- renderPlot({
-    ggplot(filtered_data(), aes(Salary)) +
-      geom_histogram() +
+    p <- ggplot(filtered_data(), aes_string(input$variable)) +
       theme_classic() +
       scale_x_log10(labels = scales::comma)
+
+    if (input$plot_type == "histogram") {
+      p <- p + geom_histogram()
+    } else if (input$plot_type == "density") {
+      p <- p + geom_density()
+    }
+    p
   })
 
 }
